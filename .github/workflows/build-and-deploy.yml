@@ -1,0 +1,42 @@
+name: Build and Dispatch
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  # イメージ名は全て小文字にする必要があります
+  IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/my-next-app
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and Push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          # タグにコミットハッシュ(sha)を使用
+          tags: ${{ env.IMAGE_NAME }}:${{ github.sha }}
+
+      - name: Trigger Infra Deploy
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          # ↓ インフラリポジトリ名を正確に指定してください
+          repository: naganuma-tsutomu/proxmox-iac-project
+          token: ${{ secrets.INFRA_REPO_PAT }}
+          event-type: deploy-next-app
+          client-payload: '{"image_tag": "${{ github.sha }}", "image_name": "${{ env.IMAGE_NAME }}"}'
