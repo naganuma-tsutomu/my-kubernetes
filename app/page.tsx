@@ -54,19 +54,22 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <Link href={`/projects/${project.slug}`} key={index}>
-                <div
-                  className="group bg-white rounded-lg overflow-hidden border border-[#1C1C1C]/20 transform hover:-translate-y-2 transition-transform duration-300"
-                >
-                  <div className="h-48 bg-gray-100"></div>
-                  <div className="p-6">
-                    <h3 className="text-2xl font-bold font-oswald text-[#1C1C1C] mb-2 group-hover:text-[#E53935] transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-[#3a3a3a]">{project.description}</p>
-                  </div>
+              <div key={index} className="relative group transform transition-transform duration-300">
+                {/* Shadow Element */}
+                <div className="absolute top-2 left-2 w-full h-full bg-black transform transition-transform duration-300 group-hover:translate-x-[-2px] group-hover:translate-y-[-2px]"></div>
+                {/* Card Element */}
+                <div className="relative bg-white overflow-hidden border-3 border-black hover:translate-x-[3px] hover:translate-y-[3px] transition-transform duration-300">
+                  <Link href={`/projects/${project.slug}`}>
+                    <div className="h-48 bg-gray-100"></div>
+                    <div className="p-6">
+                      <h3 className="text-2xl font-bold font-oswald text-[#1C1C1C] mb-2 group-hover:text-[#E53935] transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-[#3a3a3a]">{project.description}</p>
+                    </div>
+                  </Link>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
