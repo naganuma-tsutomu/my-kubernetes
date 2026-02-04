@@ -58,9 +58,19 @@ export default function Home() {
                 {/* Shadow Element */}
                 <div className="absolute top-2 left-2 w-full h-full bg-black transform transition-transform duration-300 group-hover:translate-x-[-2px] group-hover:translate-y-[-2px]"></div>
                 {/* Card Element */}
-                <div className="relative bg-white overflow-hidden border-3 border-black hover:translate-x-[3px] hover:translate-y-[3px] transition-transform duration-300">
+                <div className="relative bg-white overflow-hidden border-4 border-black hover:translate-x-[3px] hover:translate-y-[3px] transition-transform duration-300">
                   <Link href={`/projects/${project.slug}`}>
-                    <div className="h-48 bg-gray-100"></div>
+                    <div className="flex items-center p-2 bg-gray-200 border-b-4">
+                      <div className="flex space-x-1">
+                        <span className="w-3 h-3 rounded-full border-3 group-hover:bg-[#1C1C1C] transition-colors"></span>
+                        <span className="w-3 h-3 rounded-full border-3 group-hover:bg-[#1C1C1C] transition-colors"></span>
+                        <span className="w-3 h-3 rounded-full border-3 group-hover:bg-[#1C1C1C] transition-colors"></span>
+                      </div>
+                      <div className="flex-grow text-center text-sm text-gray-700 font-bold">
+                        {project.title}.html
+                      </div>
+                    </div>
+                    <div className="h-48 bg-gray-100 border-b-4"></div>
                     <div className="p-6">
                       <h3 className="text-2xl font-bold font-oswald text-[#1C1C1C] mb-2 group-hover:text-[#E53935] transition-colors">
                         {project.title}

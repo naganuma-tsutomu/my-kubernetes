@@ -1,13 +1,14 @@
 import Link from "next/link";
+import HamburgerMenu from "./HamburgerMenu";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 w-full">
+    <header className="sticky top-0 z-50 w-full bg-white shadow-md">
       <div className="container mx-auto flex items-center justify-between p-4">
         <Link href="/" className="text-2xl font-bold font-oswald text-[#1C1C1C]">
           My Kubernetes
         </Link>
-        <nav>
+        <nav className="hidden md:block">
           <ul className="flex space-x-6 font-oswald text-lg">
             <li>
               <Link href="/" className="text-[#1C1C1C] hover:text-[#E53935] transition-colors">
@@ -31,6 +32,7 @@ const Header = () => {
             </li>
           </ul>
         </nav>
+        <HamburgerMenu />
       </div>
     </header>
   );
