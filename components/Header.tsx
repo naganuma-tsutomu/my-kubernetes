@@ -3,10 +3,10 @@ import HamburgerMenu from "./HamburgerMenu";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 w-full bg-white shadow-md">
+    <header className="sticky top-0 z-50 w-full bg-[#f8f4e6] shadow-md font-['Oswald']">
       <div className="container mx-auto flex items-center justify-between p-4">
-        <Link href="/" className="text-2xl font-bold font-oswald text-[#1C1C1C]">
-          My Kubernetes
+        <Link href="/" className="text-2xl font-bold text-[#1C1C1C]">
+          NAGANUMA
         </Link>
         <nav className="hidden md:block">
           <ul className="flex space-x-6 font-oswald text-lg">
