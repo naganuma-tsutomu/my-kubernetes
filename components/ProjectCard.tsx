@@ -33,8 +33,6 @@ export default function ProjectCard({ project, index, onClick }: ProjectCardProp
   return (
     <motion.div
       ref={ref}
-      layoutId={`card-container-${project.slug}`}
-      onClick={onClick}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -48,7 +46,6 @@ export default function ProjectCard({ project, index, onClick }: ProjectCardProp
 
       {/* Main Card Content */}
       <motion.div
-        layoutId={`card-content-${project.slug}`}
         className={`relative bg-white overflow-hidden border-4 border-black h-full flex flex-col transition-transform duration-300 ${
           isMobile && isInView ? "translate-x-[3px] translate-y-[3px]" : "hover:translate-x-[3px] hover:translate-y-[3px]"
         }`}
