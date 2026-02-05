@@ -3,38 +3,7 @@
 import TypewriterEffect from "../components/TypewriterEffect";
 import ProjectCard from "../components/ProjectCard";
 
-const projects = [
-  {
-    title: "Project Alpha",
-    description: "A short description of Project Alpha.",
-    slug: "project-alpha",
-  },
-  {
-    title: "Project Beta",
-    description: "A short description of Project Beta.",
-    slug: "project-beta",
-  },
-  {
-    title: "Project Gamma",
-    description: "A short description of Project Gamma.",
-    slug: "project-gamma",
-  },
-  {
-    title: "Project Delta",
-    description: "A short description of Project Delta.",
-    slug: "project-delta",
-  },
-  {
-    title: "Project Epsilon",
-    description: "A short description of Project Epsilon.",
-    slug: "project-epsilon",
-  },
-  {
-    title: "Project Zeta",
-    description: "A short description of Project Zeta.",
-    slug: "project-zeta",
-  },
-];
+import { projects } from "../app/data/projects";
 
 export default function Home() {
   return (

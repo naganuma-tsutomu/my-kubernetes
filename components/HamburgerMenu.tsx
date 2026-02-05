@@ -12,9 +12,9 @@ const HamburgerMenu = () => {
 
   return (
     <div className="md:hidden">
-      <button onClick={toggleMenu} className="focus:outline-none">
+      <button onClick={toggleMenu} className="focus:outline-none p-2 border-2 border-black bg-white hover:bg-gray-100 transition-colors">
         <svg
-          className="w-6 h-6 text-[#1C1C1C]"
+          className="w-8 h-8 text-[#1C1C1C]"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -32,20 +32,20 @@ const HamburgerMenu = () => {
 
       {/* Overlay */}
       <div
-        className={`fixed inset-0 bg-black z-30 transition-opacity duration-300
-          ${isOpen ? "opacity-50 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        className={`fixed inset-0 bg-black/60 z-30 transition-opacity duration-300 backdrop-blur-sm
+          ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
         onClick={toggleMenu}
       ></div>
 
       {/* Slide-in Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-white z-40 transform transition-transform ease-in-out duration-300
+        className={`fixed top-0 right-0 h-full w-80 bg-white z-40 transform transition-transform ease-in-out duration-300 border-l-4 border-black shadow-2xl
           ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
-        <div className="flex justify-end p-4">
-          <button onClick={toggleMenu} className="focus:outline-none">
+        <div className="flex justify-end p-4 border-b-4 border-black bg-gray-50">
+          <button onClick={toggleMenu} className="focus:outline-none p-1 border-2 border-black hover:bg-[#E53935] hover:text-white transition-colors group">
             <svg
-              className="w-8 h-8 text-[#1C1C1C]"
+              className="w-8 h-8 text-[#1C1C1C] group-hover:text-white transition-colors"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -57,17 +57,17 @@ const HamburgerMenu = () => {
             </svg>
           </button>
         </div>
-        <nav className="flex flex-col items-center space-y-8 font-oswald text-2xl pt-8">
-          <Link href="/" onClick={toggleMenu} className="text-[#1C1C1C] hover:text-[#E53935] transition-colors">
+        <nav className="flex flex-col items-start space-y-6 font-oswald text-3xl pt-12 px-8 uppercase tracking-wide">
+          <Link href="/" onClick={toggleMenu} className="text-[#1C1C1C] hover:text-[#E53935] hover:translate-x-2 transition-all duration-200">
             Home
           </Link>
-          <Link href="/projects" onClick={toggleMenu} className="text-[#1C1C1C] hover:text-[#E53935] transition-colors">
+          <Link href="/projects" onClick={toggleMenu} className="text-[#1C1C1C] hover:text-[#E53935] hover:translate-x-2 transition-all duration-200">
             Projects
           </Link>
-          <Link href="/about" onClick={toggleMenu} className="text-[#1C1C1C] hover:text-[#E53935] transition-colors">
+          <Link href="/about" onClick={toggleMenu} className="text-[#1C1C1C] hover:text-[#E53935] hover:translate-x-2 transition-all duration-200">
             About
           </Link>
-          <Link href="/contact" onClick={toggleMenu} className="text-[#1C1C1C] hover:text-[#E53935] transition-colors">
+          <Link href="/contact" onClick={toggleMenu} className="text-[#1C1C1C] hover:text-[#E53935] hover:translate-x-2 transition-all duration-200">
             Contact
           </Link>
         </nav>

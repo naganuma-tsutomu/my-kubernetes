@@ -1,37 +1,26 @@
+"use client";
+
 import Link from "next/link";
 import HamburgerMenu from "./HamburgerMenu";
 
+import { links } from "../app/data/links";
+
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#f8f4e6] shadow-md font-['Oswald']">
-      <div className="container mx-auto flex items-center justify-between p-4">
-        <Link href="/" className="text-2xl font-bold text-[#1C1C1C]">
+    <header className="sticky top-0 z-50 w-full bg-[#f8f4e6] border-b-4 border-black font-['Oswald']">
+      <div className="container mx-auto p-4 h-20 flex items-center justify-between">
+        <Link href="/" className="text-3xl font-bold uppercase tracking-tighter text-[#1C1C1C]">
           NAGANUMA
         </Link>
-        <nav className="hidden md:block">
-          <ul className="flex space-x-6 font-oswald text-lg">
-            <li>
-              <Link href="/" className="text-[#1C1C1C] hover:text-[#E53935] transition-colors">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/projects" className="text-[#1C1C1C] hover:text-[#E53935] transition-colors">
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="text-[#1C1C1C] hover:text-[#E53935] transition-colors">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="text-[#1C1C1C] hover:text-[#E53935] transition-colors">
-                Contact
-              </Link>
-            </li>
-          </ul>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex space-x-8 text-lg font-bold uppercase">
+          {links.map((link) => (
+            <Link key={link.name} href={link.href} className="text-[#1C1C1C] hover:text-[#E53935] transition-colors">{link.name}</Link>
+          ))}
         </nav>
+
+        {/* Mobile Nav */}
         <HamburgerMenu />
       </div>
     </header>
