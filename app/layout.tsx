@@ -2,6 +2,19 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
+import { Oswald, Shippori_Mincho } from "next/font/google";
+
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-oswald",
+});
+
+const shipporiMincho = Shippori_Mincho({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-shippori-mincho",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,20 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Shippori+Mincho&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="flex flex-col min-h-screen">
+    <html lang="jp" className={`${oswald.variable} ${shipporiMincho.variable}`}>
+      <body>
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
