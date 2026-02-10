@@ -14,10 +14,9 @@ interface Project {
 interface ProjectCardProps {
   project: Project;
   index: number;
-  onClick?: () => void;
 }
 
-export default function ProjectCard({ project, index, onClick }: ProjectCardProps) {
+export default function ProjectCard({ project, index, }: ProjectCardProps) {
   const [imageError, setImageError] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const ref = useRef(null);
