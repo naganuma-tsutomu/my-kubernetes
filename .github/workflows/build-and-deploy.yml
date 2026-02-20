@@ -31,6 +31,8 @@ jobs:
           push: true
           # タグにコミットハッシュ(sha)を使用
           tags: ${{ env.IMAGE_NAME }}:${{ github.sha }}
+          build-args: |
+            NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
 
       - name: Trigger Infra Deploy
         uses: peter-evans/repository-dispatch@v3
