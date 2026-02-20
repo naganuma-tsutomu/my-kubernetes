@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
+import { links } from "../app/data/links";
+
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -80,18 +82,16 @@ const HamburgerMenu = () => {
           </button>
         </div>
         <nav className="flex flex-col items-start space-y-6 font-oswald text-3xl pt-12 px-8 uppercase tracking-wide">
-          <Link href="/" onClick={toggleMenu} className="text-[#1C1C1C] hover:text-[#E53935] hover:translate-x-2 transition-all duration-200">
-            Home
-          </Link>
-          <Link href="/projects" onClick={toggleMenu} className="text-[#1C1C1C] hover:text-[#E53935] hover:translate-x-2 transition-all duration-200">
-            Projects
-          </Link>
-          <Link href="/about" onClick={toggleMenu} className="text-[#1C1C1C] hover:text-[#E53935] hover:translate-x-2 transition-all duration-200">
-            About
-          </Link>
-          <Link href="/contact" onClick={toggleMenu} className="text-[#1C1C1C] hover:text-[#E53935] hover:translate-x-2 transition-all duration-200">
-            Contact
-          </Link>
+          {links.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              onClick={toggleMenu}
+              className="text-[#1C1C1C] hover:text-[#E53935] hover:translate-x-2 transition-all duration-200"
+            >
+              {link.name}
+            </Link>
+          ))}
         </nav>
       </div>
     </div>
