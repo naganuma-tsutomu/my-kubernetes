@@ -26,7 +26,12 @@ const TypewriterEffect: React.FC<TypewriterEffectProps> = ({
     }
   }, [currentIndex, delay, text]);
 
-  return <h1 className={className}>{currentText}</h1>;
+  return (
+    <h1 className={className}>
+      {currentText}
+      <span className="animate-pulse font-light text-inherit">|</span>
+    </h1>
+  );
 };
 
 export default TypewriterEffect;
