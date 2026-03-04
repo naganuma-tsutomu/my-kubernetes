@@ -18,16 +18,8 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project, index, }: ProjectCardProps) {
   const [imageError, setImageError] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 1 });
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   return (
     <motion.div
@@ -39,15 +31,11 @@ export default function ProjectCard({ project, index, }: ProjectCardProps) {
       className="group cursor-pointer relative h-full"
     >
       {/* Shadow Effect */}
-      <div className={`absolute top-2 left-2 w-full h-full bg-black transition-transform duration-300 ${
-        isMobile && isInView ? "translate-x-[-2px] translate-y-[-2px]" : "group-hover:translate-x-[-2px] group-hover:translate-y-[-2px]"
-      }`}></div>
+      <div className={`absolute top-2 left-2 w-full h-full bg-black transition-transform duration-300 translate-x-[-2px] translate-y-[-2px] md:translate-x-0 md:translate-y-0 group-hover:translate-x-[-2px] group-hover:translate-y-[-2px]`}></div>
 
       {/* Main Card Content */}
       <motion.div
-        className={`relative bg-white overflow-hidden border-4 border-black h-full flex flex-col transition-transform duration-300 ${
-          isMobile && isInView ? "translate-x-[3px] translate-y-[3px]" : "hover:translate-x-[3px] hover:translate-y-[3px]"
-        }`}
+        className={`relative bg-white overflow-hidden border-4 border-black h-full flex flex-col transition-transform duration-300 translate-x-[3px] translate-y-[3px] md:translate-x-0 md:translate-y-0 group-hover:translate-x-[3px] group-hover:translate-y-[3px]`}
       >
         {/* Browser Header */}
         <div className="flex items-center p-2 bg-gray-200 border-b-4">

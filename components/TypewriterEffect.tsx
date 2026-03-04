@@ -17,6 +17,11 @@ const TypewriterEffect: React.FC<TypewriterEffectProps> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    setCurrentText("");
+    setCurrentIndex(0);
+  }, [text]); // text変更時にリセット
+
+  useEffect(() => {
     if (currentIndex < text.length) {
       const timeout = setTimeout(() => {
         setCurrentText((prevText) => prevText + text[currentIndex]);
