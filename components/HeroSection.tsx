@@ -27,9 +27,9 @@ export default function HeroSection() {
     return (
         <section className="relative flex flex-col items-center justify-center py-32 px-4 overflow-hidden">
             {/* Grid Background & Geometric Shape */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff1a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff1a_1px,transparent_1px)] bg-[size:24px_24px] transition-colors duration-300"></div>
             <div
-                className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-gradient-to-tr from-blue-50 to-purple-50 rounded-full blur-3xl opacity-60 pointer-events-none transition-transform duration-75 ease-out"
+                className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-gradient-to-tr from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 rounded-full blur-3xl opacity-60 pointer-events-none transition-transform duration-75 ease-out"
                 style={{
                     transform: `translate(calc(-50% + ${mousePosition.x}px), calc(-50% + ${mousePosition.y}px))`,
                 }}
@@ -37,9 +37,9 @@ export default function HeroSection() {
             <div className="max-w-4xl mx-auto text-center z-10">
                 <TypewriterEffect
                     text="Welcome to My Site."
-                    className="text-6xl md:text-8xl font-bold text-[#1C1C1C] mb-6 tracking-tight font-['Oswald'] min-h-[180px] flex items-center justify-center uppercase"
+                    className="text-6xl md:text-8xl font-bold text-[#1C1C1C] dark:text-white mb-6 tracking-tight font-['Oswald'] min-h-[180px] flex items-center justify-center uppercase"
                 />
-                <p className="text-xl md:text-2xl text-[#3a3a3a] font-['Shippori_Mincho'] tracking-wide">
+                <p className="text-xl md:text-2xl text-[#3a3a3a] dark:text-gray-300 font-['Shippori_Mincho'] tracking-wide transition-colors duration-300">
                     This is a showcase of my projects and skills.
                 </p>
             </div>

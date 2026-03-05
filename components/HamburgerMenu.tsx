@@ -27,13 +27,13 @@ const HamburgerMenu = () => {
     <div className="md:hidden">
       <button
         onClick={toggleMenu}
-        className="focus:outline-none p-2 border-2 border-black bg-white hover:bg-gray-100 transition-colors"
+        className="outline-none p-2 border-2 border-black dark:border-white bg-white dark:bg-zinc-800 hover:bg-gray-100 dark:hover:bg-zinc-700 transition-colors focus-visible:ring-4 focus-visible:ring-black dark:focus-visible:ring-white"
         aria-label={isOpen ? "メニューを閉じる" : "メニューを開く"}
         aria-expanded={isOpen}
         aria-controls="mobile-menu"
       >
         <svg
-          className="w-8 h-8 text-[#1C1C1C]"
+          className="w-8 h-8 text-[#1C1C1C] dark:text-white"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -63,13 +63,17 @@ const HamburgerMenu = () => {
         role="dialog"
         aria-modal="true"
         aria-label="サイト内ナビゲーション"
-        className={`fixed top-0 right-0 h-full w-80 bg-white z-40 transform transition-all ease-in-out duration-300 border-l-4 border-black shadow-2xl
+        className={`fixed top-0 right-0 h-full w-80 bg-white dark:bg-zinc-900 z-40 transform transition-all ease-in-out duration-300 border-l-4 border-black dark:border-white shadow-2xl
           ${isOpen ? "translate-x-0 visible" : "translate-x-full invisible"}`}
       >
-        <div className="flex justify-end p-4 border-b-4 border-black bg-gray-50">
-          <button onClick={toggleMenu} aria-label="メニューを閉じる" className="focus:outline-none p-1 border-2 border-black hover:bg-[#E53935] hover:text-white transition-colors group">
+        <div className="flex justify-end p-4 border-b-4 border-black dark:border-white bg-gray-50 dark:bg-zinc-800 transition-colors duration-300">
+          <button
+            onClick={toggleMenu}
+            aria-label="メニューを閉じる"
+            className="outline-none p-1 border-2 border-black dark:border-white hover:bg-[#E53935] dark:hover:bg-[#ff6b6b] hover:text-white transition-colors group focus-visible:ring-4 focus-visible:ring-[#E53935] dark:focus-visible:ring-[#ff6b6b]"
+          >
             <svg
-              className="w-8 h-8 text-[#1C1C1C] group-hover:text-white transition-colors"
+              className="w-8 h-8 text-[#1C1C1C] dark:text-white group-hover:text-white transition-colors"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -87,7 +91,7 @@ const HamburgerMenu = () => {
               key={link.name}
               href={link.href}
               onClick={toggleMenu}
-              className="text-[#1C1C1C] hover:text-[#E53935] hover:translate-x-2 transition-all duration-200"
+              className="text-[#1C1C1C] dark:text-gray-200 hover:text-[#E53935] dark:hover:text-[#ff6b6b] hover:translate-x-2 transition-all duration-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#E53935] dark:focus-visible:ring-[#ff6b6b] px-2 rounded-sm"
             >
               {link.name}
             </Link>

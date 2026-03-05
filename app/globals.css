@@ -6,6 +6,13 @@ body {
   font-family: 'Shippori Mincho', serif;
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #18181b;
+    color: #ffffff;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Oswald', sans-serif;
 }
