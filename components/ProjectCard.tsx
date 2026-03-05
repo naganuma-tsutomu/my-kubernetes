@@ -31,11 +31,13 @@ export default function ProjectCard({ project, index, }: ProjectCardProps) {
       className="group cursor-pointer relative h-full"
     >
       {/* Shadow Effect */}
-      <div className={`absolute top-2 left-2 w-full h-full bg-black transition-transform duration-300 translate-x-[-2px] translate-y-[-2px] md:translate-x-0 md:translate-y-0 group-hover:translate-x-[-2px] group-hover:translate-y-[-2px]`}></div>
+      <div className={`absolute top-2 left-2 w-full h-full bg-black transition-transform duration-300 md:translate-x-0 md:translate-y-0 group-hover:translate-x-[-2px] group-hover:translate-y-[-2px] ${isInView ? "translate-x-[-2px] translate-y-[-2px]" : "translate-x-0 translate-y-0"
+        }`}></div>
 
       {/* Main Card Content */}
       <motion.div
-        className={`relative bg-white overflow-hidden border-4 border-black h-full flex flex-col transition-transform duration-300 translate-x-[3px] translate-y-[3px] md:translate-x-0 md:translate-y-0 group-hover:translate-x-[3px] group-hover:translate-y-[3px]`}
+        className={`relative bg-white overflow-hidden border-4 border-black h-full flex flex-col transition-transform duration-300 md:translate-x-0 md:translate-y-0 group-hover:translate-x-[3px] group-hover:translate-y-[3px] ${isInView ? "translate-x-[3px] translate-y-[3px]" : "translate-x-0 translate-y-0"
+          }`}
       >
         {/* Browser Header */}
         <div className="flex items-center p-2 bg-gray-200 border-b-4">
