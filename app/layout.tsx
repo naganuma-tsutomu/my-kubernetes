@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
 import "./globals.css";
 import { Oswald, Shippori_Mincho } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -30,6 +31,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`${oswald.variable} ${shipporiMincho.variable}`}>
       <body>
+        <CustomCursor />
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />

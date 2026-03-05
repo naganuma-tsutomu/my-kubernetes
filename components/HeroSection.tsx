@@ -37,7 +37,7 @@ export default function HeroSection() {
             <div className="max-w-4xl mx-auto text-center z-10">
                 <TypewriterEffect
                     text="Welcome to My Site."
-                    className="text-6xl md:text-8xl font-bold text-[#1C1C1C] dark:text-white mb-6 tracking-tight font-['Oswald'] min-h-[180px] flex items-center justify-center uppercase"
+                    className="text-6xl md:text-8xl font-bold text-[#1C1C1C] dark:text-white mb-6 tracking-tight font-['Oswald'] min-h-[150px] md:min-h-[180px] uppercase inline-block"
                 />
                 <p className="text-xl md:text-2xl text-[#3a3a3a] dark:text-gray-300 font-['Shippori_Mincho'] tracking-wide transition-colors duration-300">
                     This is a showcase of my projects and skills.
