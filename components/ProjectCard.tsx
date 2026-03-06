@@ -4,23 +4,27 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-interface Project {
+interface CardItem {
   title: string;
   description: string;
-  slug: string;
-  imageUrl: string;
+  slug: string; // ブログの場合は id を slug として扱う
+  imageUrl?: string;
+  date?: string;
 }
 
 interface ProjectCardProps {
-  project: Project;
+  item: CardItem;
   index: number;
+  type?: "project" | "blog";
 }
 
-export default function ProjectCard({ project, index, }: ProjectCardProps) {
+export default function ProjectCard({ item, index, type = "project" }: ProjectCardProps) {
   const [imageError, setImageError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 1 });
+
+  const extension = type === "project" ? ".html" : ".md";
 
   return (
     <motion.div
@@ -50,7 +54,7 @@ export default function ProjectCard({ project, index, }: ProjectCardProps) {
             <span className={`w-3 h-3 rounded-full border-2 border-black dark:border-white group-hover:bg-[#1C1C1C] dark:group-hover:bg-white transition-colors md:bg-transparent md:dark:bg-transparent ${isInView ? "bg-[#1C1C1C] dark:bg-white" : "bg-transparent dark:bg-transparent"}`}></span>
           </div>
           <div className="flex-grow text-center text-sm text-gray-700 dark:text-gray-300 font-bold truncate ml-2">
-            {project.title}.html
+            {item.title}{extension}
           </div>
         </div>
 
@@ -64,8 +68,8 @@ export default function ProjectCard({ project, index, }: ProjectCardProps) {
             />
           )}
           <Image
-            src={imageError ? "/images/no-image.jpg" : project.imageUrl}
-            alt={project.title}
+            src={imageError || !item.imageUrl ? "/images/no-image.jpg" : item.imageUrl}
+            alt={item.title}
             fill
             className={`object-cover transition-opacity duration-300 ${isLoading ? "opacity-0" : "opacity-100"}`}
             priority={index < 3}
@@ -76,10 +80,13 @@ export default function ProjectCard({ project, index, }: ProjectCardProps) {
 
         {/* Text Content */}
         <div className="p-6 flex-grow transition-colors duration-300">
+          {item.date && (
+            <p className="text-sm font-bold text-gray-500 dark:text-gray-400 mb-1">{item.date}</p>
+          )}
           <h3 className={`text-2xl font-bold font-oswald mb-2 group-hover:text-[#E53935] dark:group-hover:text-[#ff6b6b] transition-colors md:text-[#1C1C1C] md:dark:text-white ${isInView ? "text-[#E53935] dark:text-[#ff6b6b]" : "text-[#1C1C1C] dark:text-white"}`}>
-            {project.title}
+            {item.title}
           </h3>
-          <p className="text-[#3a3a3a] dark:text-gray-300 line-clamp-3 transition-colors duration-300">{project.description}</p>
+          <p className="text-[#3a3a3a] dark:text-gray-300 line-clamp-3 transition-colors duration-300">{item.description}</p>
         </div>
       </motion.div>
     </motion.div>
